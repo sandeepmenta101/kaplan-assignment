@@ -1,0 +1,21 @@
+<div *ngIf="tutorialsList.length === 0">
+      <app-loading-shimmer *ngFor="let loader of loadingShimmers    "></app-loading-shimmer>
+</div>
+<div class="tutorials" *ngIf="tutorialsList.length > 0">
+    <div class="tutorial" *ngFor="let tutorial of tutorialsList">
+        <div class="profile-section">
+            <img class="profilepic" src={{tutorial?.subjectPhotoUrl}} alt={{tutorial?.title}} onerror="this.src='assets/images/default-book.png';" />
+        </div>
+        <div class="comment-section">
+            <h3 class="title">{{tutorial?.title}}</h3>
+            <p class="description">{{tutorial?.description}}</p>    
+        </div>
+        <div class="user-profile-section">
+            <img src={{tutorial?.instructorPhotoUrl}} alt={{tutorial.instructorName}} onerror="this.src='assets/images/default-user.png';"  />
+            <h3 class="title">{{tutorial?.instructorName}}</h3>
+        </div>
+        <div class="time-section">
+            <p class="time">{{tutorial?.time | date}}</p>    
+        </div>
+    </div>
+</div>
